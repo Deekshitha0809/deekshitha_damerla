@@ -1,0 +1,12 @@
+<!-- contacts/templates/contacts/contact_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Contact</h2>
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% if form.instance.pk %}{% url 'contact_detail' pk=form.instance.pk %}{% else %}{% url 'contact_list' %}{% endif %}">Cancel</a>
+{% endblock %}

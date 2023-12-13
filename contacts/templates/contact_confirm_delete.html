@@ -1,0 +1,12 @@
+<!-- contacts/templates/contacts/contact_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Delete Confirmation</h2>
+  <p>Are you sure you want to delete the contact "{{ object }}"?</p>
+  <form method="post" action="{% url 'contact_delete' pk=object.pk %}">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'contact_detail' pk=object.pk %}">No, cancel</a>
+  </form>
+{% endblock %}

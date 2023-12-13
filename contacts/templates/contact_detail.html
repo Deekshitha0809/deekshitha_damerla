@@ -1,0 +1,11 @@
+<!-- contacts/templates/contacts/contact_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Contact Details</h2>
+  <p><strong>Name:</strong> {{ object.name }}</p>
+  <p><strong>Email:</strong> {{ object.email }}</p>
+  <a href="{% url 'contact_update' pk=object.pk %}">Edit</a>
+  <a href="{% url 'contact_delete' pk=object.pk %}">Delete</a>
+  <a href="{% url 'contact_list' %}">Back to list</a>
+{% endblock %}
